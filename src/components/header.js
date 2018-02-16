@@ -5,6 +5,7 @@ class Header extends Component {
   authButton() {
     return <button>Sign in</button>
   }
+
   render() {
     return (
       <nav className="navbar navbar-light">

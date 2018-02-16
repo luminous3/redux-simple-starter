@@ -3,8 +3,17 @@ import { connect } from 'react-redux'
 
 export default function(ComposedComponent) {
   class Auth extends Component {
+    static contextTypes = {
+      router: React.PropTypes.object
+    }
+
+    componentWillMount() {
+      if (!this.props.authenticated) {
+        this.context.router.push('/')
+      }
+    }
+
     render() {
-      console.log('rendering composed', this.props.authenticated)
       return <ComposedComponent {...this.props} />
     }
   }
